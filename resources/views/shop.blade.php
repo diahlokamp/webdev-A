@@ -1,8 +1,20 @@
 @extends('base.base')
-@section('content')
+    @section('content')
     <h1>Shop Here</h1>
-    <p>Welcome to my homepage!</p>
-    <img src="{{ asset('storage/images/boboiboy.jpg') }}" alt="" class="img-fluid rounded mb-4" style="max-width: 300px;">
-    <p>This is a simple homepage created with Laravel and Blade templating.</p>
+    <img src="{{ asset('images/boboiboy.jpg') }}" alt="Shop Image" class="img-fluid rounded mb-4" style="max-width: 300px;">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach ($products as $product)
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <p class="card-text"><i>{{ $product->product_category->name }}</i></p>
+                    <p class="card-text">Rp {{ number_format($product->price, 2) }}</p>
+                    <p class="card-text">{{ $product->details }}</p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    </div>
 @endsection
 

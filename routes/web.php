@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StoreController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,9 +13,11 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
+// Route::get('/shop', function () {
+//     return view('shop');
+// })->name('shop');
+Route::get('/shop', [StoreController::class, 'show'])->name('shop');
+// Route::get('/shop/{id}', [StoreController::class, 'show'])->name('
 
 Route::get('/home', [HomeController::class, 'show'])->name('home');
 
