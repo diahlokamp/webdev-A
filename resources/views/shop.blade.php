@@ -8,7 +8,7 @@
         </div>
     @endif
     <h1>Shop Here</h1>
-    <img src="{{ asset('images/boboiboy.jpg') }}" alt="Shop Image" class="img-fluid rounded mb-4" style="max-width: 300px;">
+    {{-- <img src="{{ asset('images/boboiboy.jpg') }}" alt="Shop Image" class="img-fluid rounded mb-4" style="max-width: 300px;"> --}}
     <br>
     <a href="{{ route('product_insert_form') }}" class="btn btn-primary">Insert New Product</a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
