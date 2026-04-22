@@ -10,7 +10,9 @@
     <h1>Shop Here</h1>
     {{-- <img src="{{ asset('images/boboiboy.jpg') }}" alt="Shop Image" class="img-fluid rounded mb-4" style="max-width: 300px;"> --}}
     <br>
-    <a href="{{ route('product_insert_form') }}" class="btn btn-primary">Insert New Product</a>
+    @can('insert_product')
+        <a href="{{ route('product_insert_form') }}" class="btn btn-primary">Insert New Product</a>
+    @endcan
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($products as $product)
             <div class="col">
@@ -24,12 +26,16 @@
                         <p class="card-text"><i>{{ $product->product_category->name }}</i></p>
                         <p class="card-text">Rp {{ number_format($product->price, 2) }}</p>
                         <p class="card-text">{{ $product->details }}</p>
-                        <a href="{{ route('product_edit_form', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        @can('update_product')
+                            <a href="{{ route('product_edit_form', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        @endcan
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#deleteModal{{ $product->id }}">
-                            Delete
-                        </button>
+                        @can('delete_product')
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal{{ $product->id }}">
+                                Delete
+                            </button>
+                        @endcan
 
                         <!-- Delete Confirmation Modal -->
                         <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1"
