@@ -16,25 +16,25 @@ class UserRoleSeeder extends Seeder
         //
         DB::table('user_roles')->insert([
             [
-                'user_id' => 5, // Assuming user with ID 1 is user1
+                'user_id' => 1, // Assuming user with ID 1 is user1
                 'role' => 'customer',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 6, // Assuming user with ID 2 is user2
+                'user_id' => 2, // Assuming user with ID 2 is user2
                 'role' => 'customer',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 7, // Assuming user with ID 3 is admin and owner
+                'user_id' => 3, // Assuming user with ID 3 is admin and owner
                 'role' => 'admin',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 7, // Assuming user with ID 3 is admin and owner
+                'user_id' => 3, // Assuming user with ID 4 is owner
                 'role' => 'owner',
                 'created_at' => now(),
                 'updated_at' => now(),
